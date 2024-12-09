@@ -10,12 +10,17 @@ from linebot.v3.webhooks import (MessageEvent,
                                  TextMessageContent)
 from linebot.v3.exceptions import InvalidSignatureError
 import google.generativeai as genai
+import os
+
+ACCESS_TOKEN = os.environ.get('ACCESS_TOKEN')
+CHANNEL_SECRET = os.environ.get('CHANNEL_SECRET')
+GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY')
 
 app = FastAPI()
 
-ACCESS_TOKEN = "NO4DDCvPVR1csvxfHNgo38a7WNwF0hSWDM516MBDfD3iYmKjVxM9Stw2KFOUsBWXoZ36y9GZ2eqXlmw5IO6Kev+Y1F1k+J7DM5klZX85yB7oTXp2B/bh0O2P1QHn3JzoYuHqgHkctTb6MDreK9k6dQdB04t89/1O/w1cDnyilFU="
-CHANNEL_SECRET = "a5ac530752893bf41435f12c5db1c512"
-GEMINI_API_KEY = "AIzaSyB3RyfrmdTSKXJeOW0bvTflaNaIpscZkeM"
+# ACCESS_TOKEN = "NO4DDCvPVR1csvxfHNgo38a7WNwF0hSWDM516MBDfD3iYmKjVxM9Stw2KFOUsBWXoZ36y9GZ2eqXlmw5IO6Kev+Y1F1k+J7DM5klZX85yB7oTXp2B/bh0O2P1QHn3JzoYuHqgHkctTb6MDreK9k6dQdB04t89/1O/w1cDnyilFU="
+# CHANNEL_SECRET = "a5ac530752893bf41435f12c5db1c512"
+# GEMINI_API_KEY = "AIzaSyB3RyfrmdTSKXJeOW0bvTflaNaIpscZkeM"
 configuration = Configuration(access_token=ACCESS_TOKEN)
 handler = WebhookHandler(channel_secret=CHANNEL_SECRET)
 
